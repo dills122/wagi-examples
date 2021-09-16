@@ -1,0 +1,3 @@
+[[module]]
+route = "/as-hello"
+module = "./build/optimized.wasm"

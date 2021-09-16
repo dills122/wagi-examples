@@ -42,6 +42,14 @@ if (vars.has("greet")) {
 // If name and host are not set, it will be "hello world from unknown host".
 Console.log("hello " + greet + " from " + defstr(host, "unknown host"));
 
+const allEnvs = env.all();
+
+for (let i = 0; i < allEnvs.length; i++) {
+  const envVar = allEnvs[i];
+  const str = "ENV VAR: " + envVar.key + " " + envVar.value;
+  Console.log(str);
+}
+
 // Load the arguments and parse the query string values out of them.
 //
 // In WAGI (as in CGI), the query parameters from a query string are parsed into name/value
@@ -61,6 +69,8 @@ function parseArgs(): Map<string, string> {
   if (args.length > 1) {
     for (let i = 1; i < args.length; i++) {
       let pair = args[i].split("=");
+      const cliStr = "CLI ARGS: " + args[i];
+      Console.log(cliStr);
       if (pair.length == 2) {
         vars.set(pair[0], pair[1]);
       }
