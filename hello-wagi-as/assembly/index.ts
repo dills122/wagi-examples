@@ -7,7 +7,7 @@
  * log using `Console.error`.
  */
 import "wasi";
-import { Console, Environ, CommandLine } from "as-wasi";
+import { Console, Environ, Descriptor, CommandLine } from "as-wasi";
 
 // Sending to Console.log is essentially sending to STDOUT. In WAGI, as in CGI, the first
 // section of the response MUST be a header. And in the header, it MUST contain either
@@ -37,6 +37,10 @@ let greet = "world";
 if (vars.has("greet")) {
   greet = vars.get("greet");
 }
+
+const stdInMaybe = Descriptor.Stdin.readString();
+
+Console.log(defstr(stdInMaybe, "EMPTY"));
 
 // Now we will send the message hello NAME from HOST.
 // If name and host are not set, it will be "hello world from unknown host".

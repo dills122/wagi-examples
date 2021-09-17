@@ -16,10 +16,10 @@
   "author": "Matt Butcher",
   "license": "MIT",
   "dependencies": {
-    "@assemblyscript/loader": "^0.15.2"
+    "@assemblyscript/loader": "^0.19.16"
   },
   "devDependencies": {
-    "as-wasi": "^0.2.1",
-    "assemblyscript": "^0.15.2"
+    "as-wasi": "^0.4.6",
+    "assemblyscript": "^0.19.16"
   }
 }
